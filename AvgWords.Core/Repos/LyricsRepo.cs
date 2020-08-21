@@ -15,7 +15,7 @@ namespace AvgWords.Core.Repos
         public string Get(string artist, string title)
         {
             var response = _apiConsumer.GetLyrics(artist, title);
-            return response.lyrics;
+            return response?.lyrics;
         }
     }
 }

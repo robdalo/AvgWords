@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
@@ -19,24 +20,24 @@ namespace AvgWords.SDK.Consumers
         {
             _baseUrl = baseUrl;
             _client = new HttpClient();
+
+            ConfigureHeaders();
         }
 
-        private void ConfigureHeaders(string authToken = "")
+        private void ConfigureHeaders()
         {
             _client.DefaultRequestHeaders.Clear();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(ContentType));
             _client.DefaultRequestHeaders.Add("User-Agent", $"{AppName}/{Version} ({ContactEmail})");
-
-            if (!string.IsNullOrEmpty(authToken))
-                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", authToken);
         }
 
         public T Get<T>(string endpoint, string authToken = "")
         {
-            ConfigureHeaders(authToken);
-
             var response = _client.GetAsync(new Uri($"{_baseUrl}/{endpoint}")).Result;
             var content = response.Content.ReadAsStringAsync().Result;
+
+            if (response.StatusCode != HttpStatusCode.OK)
+                return default(T);
 
             return Serializer.Deserialize<T>(content);
         }
