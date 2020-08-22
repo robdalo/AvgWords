@@ -23,6 +23,11 @@ export class ReportComponent implements OnInit {
 
   goBtnOnClick() {
     this.report = null;
+	if (this.artist == null || this.artist == "")
+	{
+		this.message = 'You must specify an artist name';
+		return;
+	}
     this.message = 'Searching for artist. Please wait...';
     this.reportService.getReport(this.artist).subscribe(report => {
       if (report.errorMessage != null && report.errorMessage != '') {
