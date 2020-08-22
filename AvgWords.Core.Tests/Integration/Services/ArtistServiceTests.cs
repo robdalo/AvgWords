@@ -10,7 +10,7 @@ namespace AvgWords.Core.Tests.Integration.Services
     {
         private readonly IArtistRepo _artistRepo;
         private readonly ILyricsRepo _lyricsRepo;
-        private readonly ICalcService _calcService;
+        private readonly IReportService _reportService;
 
         private const string MusicBrainzBaseUrl = "https://musicbrainz.org/ws/2";
         private const string LyricsOvhBaseUrl = "https://api.lyrics.ovh/v1";
@@ -22,7 +22,7 @@ namespace AvgWords.Core.Tests.Integration.Services
 
             _artistRepo = new ArtistRepo(musicBrainzApiConsumer);
             _lyricsRepo = new LyricsRepo(lyricsOvhApiConsumer);
-            _calcService = new CalcService(_artistRepo, _lyricsRepo);
+            _reportService = new ReportService(_artistRepo, _lyricsRepo);
         }
 
         [SetUp]
@@ -34,10 +34,10 @@ namespace AvgWords.Core.Tests.Integration.Services
         public void WhenGetAvgWordsPerSong_ReturnsAvgWordsPerSong()
         {
             var artist = "Coldplay";
-            var avgWordsPerSong = _calcService.GetAvgWordsPerSong(artist);
+            var avgWordsReport = _reportService.GetAvgWordsReport(artist);
 
             Assert.True(
-                avgWordsPerSong > 0
+                avgWordsReport.AverageWordsPerSong > 0
             );
         }
     }

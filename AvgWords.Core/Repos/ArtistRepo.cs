@@ -36,6 +36,8 @@ namespace AvgWords.Core.Repos
             var artistId = GetId(artist);
             var works = _apiConsumer.GetWorks(artistId);
 
+            works = works.OrderBy(w => w.title).Take(20).ToList();
+
             return works.OrderBy(w => w.title)
                         .Select(w => w.title)
                         .Distinct()

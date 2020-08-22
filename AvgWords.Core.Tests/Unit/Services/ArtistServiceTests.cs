@@ -12,13 +12,13 @@ namespace AvgWords.Core.Tests.Unit.Services
         private readonly Mock<IArtistRepo> _artistRepo;
         private readonly Mock<ILyricsRepo> _lyricsRepo;
 
-        private readonly ICalcService _calcService;
+        private readonly IReportService _reportService;
 
         public ArtistServiceTests()
         {
             _artistRepo = new Mock<IArtistRepo>();
             _lyricsRepo = new Mock<ILyricsRepo>();
-            _calcService = new CalcService(_artistRepo.Object, _lyricsRepo.Object);
+            _reportService = new ReportService(_artistRepo.Object, _lyricsRepo.Object);
         }
 
         [SetUp]
@@ -39,10 +39,10 @@ namespace AvgWords.Core.Tests.Unit.Services
             _lyricsRepo.Setup(lr => lr.Get(It.IsAny<string>(), "Yellow"))
                        .Returns("Oh what a thing to have done");
 
-            var avgWordsPerSong = _calcService.GetAvgWordsPerSong(artist);
+            var avgWordsReport = _reportService.GetAvgWordsReport(artist);
 
             Assert.True(
-                avgWordsPerSong == expected
+                avgWordsReport.AverageWordsPerSong == expected
             );
         }
     }
