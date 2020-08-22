@@ -4,7 +4,8 @@
 
 * Open a terminal and cd to the AvgWords.Api directory `cd "D:\Bob\Source\AvgWords\AvgWords.Api"`
 * Launch the web api `dotnet run`
-* cd to the client app directory `cd "D:\Bob\Source\AvgWords\AvgWords.Web\avgwords"`
+* Open a separate terminal and cd to the client app directory `cd "D:\Bob\Source\AvgWords\AvgWords.Web\avgwords"`
+* Restore packages `npm install`
 * Launch the web app `ng serve --open`
 
 ## Testing the app
