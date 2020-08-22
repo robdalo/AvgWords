@@ -22,7 +22,12 @@ namespace AvgWords.Core.Services
 
         public AvgWordsReport GetAvgWordsReport(string artist)
         {
+            var exists = _artistRepo.Exists(artist);
+            if (!exists)
+                return new AvgWordsReport { ErrorMessage = "Artist of this name could not be found" };
+
             var titles = _artistRepo.GetWorks(artist);
+
             var songs = new ConcurrentDictionary<string, int>();
 
             // var filePath = Path.Combine(@"C:\Bob\Logs", DateTime.Now.Ticks.ToString());

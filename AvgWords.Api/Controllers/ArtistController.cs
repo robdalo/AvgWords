@@ -2,6 +2,7 @@
 using AvgWords.Mapping;
 using AvgWords.SDK.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace IssNow.Api.Controllers
 {
@@ -19,10 +20,19 @@ namespace IssNow.Api.Controllers
         [HttpGet("{artist}")]
         public ActionResult<AvgWordsReport> Get(string artist)
         {
-            var report = _reportService.GetAvgWordsReport(artist);
-            var reportMapped = AvgWordsReportMapper.DomainToSDK(report);
+            try
+            {
+                var report = _reportService.GetAvgWordsReport(artist);
 
-            return reportMapped;
+                if (!string.IsNullOrEmpty(report.ErrorMessage))
+                    return new AvgWordsReport { ErrorMessage = report.ErrorMessage };
+                
+                return AvgWordsReportMapper.DomainToSDK(report);
+            }
+            catch (Exception)
+            {
+                return new AvgWordsReport { ErrorMessage = "Error occurred when retrieving artist" };
+            }
         }
     }
 }

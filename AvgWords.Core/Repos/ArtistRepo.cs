@@ -15,6 +15,15 @@ namespace AvgWords.Core.Repos
             _apiConsumer = apiConsumer;
         }
 
+        public bool Exists(string artist)
+        {
+            var response = _apiConsumer.Search(artist);
+            if (response != null && response.artists != null && response.artists.Any())
+                return true;
+
+            return false;
+        }
+
         public Guid GetId(string artist)
         {
             var response = _apiConsumer.Search(artist);
@@ -35,8 +44,6 @@ namespace AvgWords.Core.Repos
         {
             var artistId = GetId(artist);
             var works = _apiConsumer.GetWorks(artistId);
-
-            works = works.OrderBy(w => w.title).Take(20).ToList();
 
             return works.OrderBy(w => w.title)
                         .Select(w => w.title)

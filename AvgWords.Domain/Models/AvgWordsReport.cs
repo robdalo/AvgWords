@@ -9,5 +9,6 @@ namespace AvgWords.Domain.Models
         public int NumberOfWords { get; set; }
         public decimal AverageWordsPerSong { get; set; }
         public Dictionary<string, int> Songs { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }

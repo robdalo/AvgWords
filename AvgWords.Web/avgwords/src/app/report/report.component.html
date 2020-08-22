@@ -1,0 +1,46 @@
+<h2>Search</h2>
+
+<div class="form-group">
+  <label><input [(ngModel)]="artist" (keyup.enter)="goBtnOnClick()" class="form-control" placeholder="Enter artist name" /></label>&nbsp;
+  <button (click)="goBtnOnClick()" class="btn btn-primary" tabindex="0">Go</button>
+</div>
+
+<p>{{message}}</p>
+
+<div *ngIf="report">
+  <h2>Report</h2>
+  <table class="table table-striped table-responsive-md btn-table">
+    <thead><tr>
+      <th>Artist</th>
+      <th>Songs</th>
+      <th>Words</th>
+      <th>Average Words per Song</th>
+    </tr></thead>
+
+    <tbody><tr>
+      <td>{{report.artist}}</td>
+      <td>{{report.numberOfSongs}}</td>
+      <td>{{report.numberOfWords}}</td>
+      <td>{{report.averageWordsPerSong}}</td>
+    </tr></tbody>
+  </table>
+
+  <h2>Breakdown</h2>
+  <table class="table table-striped table-responsive-md btn-table">
+    <thead>
+      <tr>
+        <th>Artist</th>
+        <th>Song</th>
+        <th>Words</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let song of report.songs | keyvalue">
+        <td>{{report.artist}}</td>
+        <td>{{song.key}}</td>
+        <td>{{song.value}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

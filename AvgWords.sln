@@ -1,19 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvgWords.Core", "AvgWords.Core\AvgWords.Core.csproj", "{2DF0EA87-B74B-4FDB-9263-33D1C82F40DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvgWords.Core", "AvgWords.Core\AvgWords.Core.csproj", "{2DF0EA87-B74B-4FDB-9263-33D1C82F40DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvgWords.Core.Tests", "AvgWords.Core.Tests\AvgWords.Core.Tests.csproj", "{DDD7E543-0D3D-4FC3-9DB6-16DFDE405852}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvgWords.Core.Tests", "AvgWords.Core.Tests\AvgWords.Core.Tests.csproj", "{DDD7E543-0D3D-4FC3-9DB6-16DFDE405852}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvgWords.SDK", "AvgWords.SDK\AvgWords.SDK.csproj", "{2B9E84C4-0301-408B-91EF-37CDD587214E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvgWords.SDK", "AvgWords.SDK\AvgWords.SDK.csproj", "{2B9E84C4-0301-408B-91EF-37CDD587214E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvgWords.Api", "AvgWords.Api\AvgWords.Api.csproj", "{2B3B355E-322D-47B8-A084-3C7AEFB25709}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvgWords.Api", "AvgWords.Api\AvgWords.Api.csproj", "{2B3B355E-322D-47B8-A084-3C7AEFB25709}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvgWords.Domain", "AvgWords.Domain\AvgWords.Domain.csproj", "{D1D0F775-9CBB-45D7-A14F-0D5C92D69C5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvgWords.Domain", "AvgWords.Domain\AvgWords.Domain.csproj", "{D1D0F775-9CBB-45D7-A14F-0D5C92D69C5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvgWords.Mapping", "AvgWords.Mapping\AvgWords.Mapping.csproj", "{EEE91ADF-0482-41FD-A7FA-FD7CA0916902}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvgWords.Mapping", "AvgWords.Mapping\AvgWords.Mapping.csproj", "{EEE91ADF-0482-41FD-A7FA-FD7CA0916902}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC7971B4-8BB3-4E95-9E67-15C7884BA43E}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvgWords.Web", "AvgWords.Web\AvgWords.Web.csproj", "{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,9 +30,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2DF0EA87-B74B-4FDB-9263-33D1C82F40DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -100,5 +104,23 @@ Global
 		{EEE91ADF-0482-41FD-A7FA-FD7CA0916902}.Release|x64.Build.0 = Release|Any CPU
 		{EEE91ADF-0482-41FD-A7FA-FD7CA0916902}.Release|x86.ActiveCfg = Release|Any CPU
 		{EEE91ADF-0482-41FD-A7FA-FD7CA0916902}.Release|x86.Build.0 = Release|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Debug|x64.Build.0 = Debug|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Debug|x86.Build.0 = Debug|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Release|x64.ActiveCfg = Release|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Release|x64.Build.0 = Release|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Release|x86.ActiveCfg = Release|Any CPU
+		{7ECBEF3E-6DAA-4982-9F59-C40B0BE90BD2}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B871B7B-427C-4ED7-AB86-157E1B198B23}
 	EndGlobalSection
 EndGlobal
