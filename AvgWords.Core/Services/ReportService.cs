@@ -30,10 +30,6 @@ namespace AvgWords.Core.Services
 
             var songs = new ConcurrentDictionary<string, int>();
 
-            // var filePath = Path.Combine(@"C:\Bob\Logs", DateTime.Now.Ticks.ToString());
-
-            // Directory.CreateDirectory(filePath);
-
             Parallel.ForEach(titles, title =>
             {
                 var lyrics = _lyricsRepo.Get(artist, title);
@@ -43,8 +39,6 @@ namespace AvgWords.Core.Services
 
                 var words = lyrics.Split(' ').ToList();
                 songs.TryAdd(title, words.Count);
-
-                // File.WriteAllText(Path.Combine(filePath, $"{title}.txt"), lyrics);
             });
 
             var avgWordsReport = new AvgWordsReport
